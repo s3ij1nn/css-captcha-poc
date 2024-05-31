@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS CAPTCHA</title>
+    <style>
+        .captcha-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+        }
+        .captcha-image {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            transition: all 0.5s;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .input-container input {
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            text-align: center;
+            margin: 0 5px;
+        }
+        .input-container input:nth-child(1):focus ~ .captcha-container .captcha-image {
+            clip: rect(0px, 100px, 100px, 0px);
+        }
+        .input-container input:nth-child(2):focus ~ .captcha-container .captcha-image {
+            clip: rect(0px, 200px, 100px, 100px);
+        }
+        .input-container input:nth-child(3):focus ~ .captcha-container .captcha-image {
+            clip: rect(0px, 300px, 100px, 200px);
+        }
+        .input-container input:nth-child(4):focus ~ .captcha-container .captcha-image {
+            clip: rect(0px, 400px, 100px, 300px);
+        }
+        .input-container input:nth-child(5):focus ~ .captcha-container .captcha-image {
+            clip: rect(0px, 500px, 100px, 400px);
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <input type="text" maxlength="1" required>
+        <input type="text" maxlength="1" required>
+        <input type="text" maxlength="1" required>
+        <input type="text" maxlength="1" required>
+        <input type="text" maxlength="1" required>
+        <div class="captcha-container">
+            <img src="captcha.png" alt="CAPTCHA" class="captcha-image">
+        </div>
+    </div>
+</body>
+</html>
